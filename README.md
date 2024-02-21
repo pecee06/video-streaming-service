@@ -9,3 +9,7 @@ We can use .env variables within .env file - just prefix the variable name with 
 
 Database connection function should always be wrapped under try-catch block and it have to be an async function, as establishing connection with a remote DB takes time
 ```
+
+# Standardization
+
+**We've standardized Errors & Responses by making their utilities**
