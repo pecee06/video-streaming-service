@@ -12,4 +12,4 @@ Database connection function should always be wrapped under try-catch block and 
 
 # Standardization
 
-**We've standardized Errors & Responses by making their utilities**
+* We've standardized Errors & Responses by making their utilities
