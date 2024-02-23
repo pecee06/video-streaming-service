@@ -37,16 +37,17 @@ const userSchema = new mongoose.Schema({
     }
 }, {timestamps: true});
 
-// Middlewares
+// Middleware
 
 userSchema.pre("save", async function(next){
+    // Runs just before saving user document into DB
+    
     if (!this.isModified("password")) return;
     this.password = await bcrypt.hash(this.password, SALTING_ROUNDS);
     next(); // Simce this hook works as a middleware, thus calling next is important for passing flag to next middleware or request handler
 });
-// This hook will get executed just before saving the document into DB
 
-// Making custom hooks
+/*Custom Hooks*/
 
 userSchema.methods.checkPassword = async function(password){
     return await bcrypt.compare(password, this.password);
@@ -78,5 +79,7 @@ userSchema.methods.generateRefreshToken = function(){
         {expiresIn: process.env.REFRESH_TOKEN_EXPIRY}
     )
 }
+
+/*Custom Hooks*/
 
 export const User = mongoose.model("User", userSchema);

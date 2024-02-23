@@ -13,3 +13,8 @@ Database connection function should always be wrapped under try-catch block and 
 # Standardization
 
 * We've standardized Errors & Responses by making their utilities
+
+# File handling
+
+* Express by itself doesn't provide any feature to deal with files (like uploading to a cloud service eg. **Cloudinary**)
+* Thus we'll use another library for that - **multer**

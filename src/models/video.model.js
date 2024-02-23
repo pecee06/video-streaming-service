@@ -39,6 +39,7 @@ const videoSchema = new mongoose.Schema({
 }, {timestamps: true});
 
 // Middleware
+
 videoSchema.plugin(mongooseAggregatePaginate);  // Allows aggregate queries (min, max, avg, ...)
 
 export const Video = mongoose.model("Video",videoSchema);
