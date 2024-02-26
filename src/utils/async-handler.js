@@ -1,12 +1,16 @@
+import { APIResponse } from "./api-response.js";
+
 const asyncHandler = (f) => (
     async (req, res, next) => {
         try {
             await f(req, res, next);
         } catch (err) {
-            res.status(err.code).json({
-                success: false,
-                message: err.message
-            });
+            res.status(err?.code || 500).json(
+                new APIResponse({
+                    message: err.message,
+                    success: false
+                })
+            );
         }
     }
 );

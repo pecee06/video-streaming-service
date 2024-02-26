@@ -1,6 +1,6 @@
 import {v2 as cloudinary} from 'cloudinary';
 import file from "fs";
-import { APIError } from './api-error';
+import { APIError } from './api-error.js';
 
 cloudinary.config({ 
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
@@ -13,7 +13,7 @@ export default async function uploadFile(path){
         if (!path){
             throw new APIError({
                 message: "File not Found!",
-                statusCode: 404
+                code: 404
             });
         }
 
@@ -21,7 +21,7 @@ export default async function uploadFile(path){
         if (!res){
             throw new APIError({
                 message: "Unable to upload the file",
-                statusCode: "500"
+                code: "500"
             });
         }
 

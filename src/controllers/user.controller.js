@@ -12,12 +12,12 @@ const registerUser = asyncHandler(async (req, res) => {
     if ([username, email, fullName, password].some(field => field?.trim() == "")){
         throw new APIError({
             message: "All fields are required",
-            statusCode: 400
+            code: 400
         });
     }
 
     // Check if user already exists
-    const userAlreadyExists = User.findOne({
+    const userAlreadyExists = await User.findOne({
         $or: [
             {username}, {email}
         ]
@@ -25,7 +25,7 @@ const registerUser = asyncHandler(async (req, res) => {
     if (userAlreadyExists){
         throw new APIError({
             message: "This user already exists",
-            statusCode: 409
+            code: 409
         });
     }
 
@@ -39,7 +39,7 @@ const registerUser = asyncHandler(async (req, res) => {
     if (!avatarPath){
         throw new APIError({
             message: "Avatar is required",
-            statusCode: 400
+            code: 400
         });
     }
 
@@ -50,7 +50,7 @@ const registerUser = asyncHandler(async (req, res) => {
     if (!avatar){
         throw new APIError({
             message: "Avatar is required",
-            statusCode: 400
+            code: 400
         });
     }
 
@@ -67,7 +67,7 @@ const registerUser = asyncHandler(async (req, res) => {
     if (!userCreated){
         throw new APIError({
             message: "Something went wrong while creating a new user",
-            statusCode: 500
+            code: 500
         });
     }
 

@@ -18,7 +18,8 @@ app.use(express.json({
 
 // Encodes the data sent over URL
 app.use(express.urlencoded({
-    limit: URL_PARAM_SIZE
+    limit: URL_PARAM_SIZE,
+    extended: true
 }));
 
 // Serving static files
