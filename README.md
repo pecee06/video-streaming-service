@@ -18,3 +18,11 @@ Database connection function should always be wrapped under try-catch block and 
 
 * Express by itself doesn't provide any feature to deal with files (like uploading to a cloud service eg. **Cloudinary**)
 * Thus we'll use another library for that - **multer**
+
+# Router Object
+
+* A router object is an isolated instance of middleware and routes. You can think of it as a "mini-application", capable only of performing middleware and routing functions
+
+* Routes written externally are to be used within app.use()
+
+* This basically lets you handle any endpoint within a route using the external routers

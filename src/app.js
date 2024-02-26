@@ -4,7 +4,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors"
 import {CORS_ORIGIN, JSON_SIZE, URL_PARAM_SIZE} from "./constants.js"
 
-/*Middlewares*/
+/* Middlewares */
 
 // Allowing Cross Origin Resource Sharing
 app.use(cors({
@@ -27,6 +27,13 @@ app.use(express.static("public"));
 // Allowing CRUD operations on browser's cookies
 app.use(cookieParser());
 
-/*Middlewares*/
+/* Middlewares */
+
+/* Handling routes */
+
+import userRouter from "./routes/user.route.js";
+app.use("/api/v1/users",userRouter);
+
+/* Handling routes */
 
 export default app;

@@ -1,4 +1,4 @@
-import { APIError } from "../utils/api-error";
+import { APIError } from "../utils/api-error.js";
 import mongoose from "mongoose";
 
 export default async function(){
