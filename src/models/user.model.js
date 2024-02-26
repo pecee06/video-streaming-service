@@ -13,6 +13,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         unique: [true,"This username already exists"],
         required: [true,"Username is a required field"],
+        lowercase: true,
         index: true // makes the field searchable
     },
     email: {

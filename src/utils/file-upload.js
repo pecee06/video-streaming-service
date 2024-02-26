@@ -1,7 +1,6 @@
 import {v2 as cloudinary} from 'cloudinary';
 import file from "fs";
 import { APIError } from './api-error';
-import { log } from 'console';
 
 cloudinary.config({ 
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 

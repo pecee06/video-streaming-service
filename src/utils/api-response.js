@@ -1,7 +1,6 @@
 class APIResponse{
-    constructor({message="OK", statusCode, data}){
+    constructor({message="OK", data}){
         this.message = message;
-        this.statusCode = statusCode;
         this.data = data;
     }
 };
